@@ -1,0 +1,198 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+	                         http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.doctor</groupId>
+	<artifactId>Ignite-2015</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<name>Ignite-2015</name>
+	<url>https://github.com/sdcuike</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.showWarnings>true</maven.compiler.showWarnings>
+		<maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<ignite.version>1.2.0-incubating</ignite.version>
+		
+		<logback-classic.version>1.1.2</logback-classic.version>
+		<log4j.version>1.2.17</log4j.version>
+		<slf4j-api.version>1.7.7</slf4j-api.version>
+
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-core</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-spring</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-indexing</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-geospatial</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-web</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-schedule</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-rest-http</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-slf4j</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-ssh</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-urideploy</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-aop</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-aws</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-visor-console</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback-classic.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback-classic.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>${slf4j-api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<finalName>Ignite-2015</finalName>
+		<plugins>
+
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>io.spring.repo.maven.release</id>
+			<url>http://repo.spring.io/release/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>io.spring.repo.maven.milestone</id>
+			<url>http://repo.spring.io/milestone/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>io.spring.repo.maven.snapshot</id>
+			<url>http://repo.spring.io/snapshot/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+
+		<repository>
+			<id>ui</id>
+			<name>Human Readable Name for this Mirror.</name>
+			<url>http://uk.maven.org/maven2/</url>
+		</repository>
+		<repository>
+			<id>central</id>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>clojars</id>
+			<url>http://clojars.org/repo/</url>
+		</repository>
+
+		<repository>
+			<id>ibiblio</id>
+			<name>Human Readable Name for this Mirror.</name>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
+		</repository>
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Repository Group</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public</url>
+		</repository>
+		<repository>
+			<id>github-releases</id>
+			<url>http://oss.sonatype.org/content/repositories/github-releases/</url>
+		</repository>
+	</repositories>
+
+</project>
