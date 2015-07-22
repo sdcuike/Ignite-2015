@@ -17,6 +17,8 @@
  */
 package com.doctor.ignite.getting_started;
 
+import java.util.concurrent.TimeUnit;
+
 import org.apache.ignite.Ignite;
 import org.apache.ignite.Ignition;
 
@@ -29,6 +31,7 @@ public class FirstIgniteComputeApplication {
 
 	public static void main(String[] args) {
 		try (Ignite ignite = Ignition.start("config/default-config.xml")) {
+			TimeUnit.MINUTES.sleep(1);
 
 		} catch (Exception e) {
 			System.out.println(e);
