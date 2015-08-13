@@ -8,7 +8,7 @@ import org.apache.ignite.cache.query.annotations.QuerySqlField;
 import org.apache.ignite.cache.query.annotations.QueryTextField;
 
 public class Person implements Serializable {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -4449817613896407122L;
 
 	@QuerySqlField(index = true)
 	private UUID id;
@@ -71,10 +71,6 @@ public class Person implements Serializable {
 
 	public void setSex(String sex) {
 		this.sex = sex;
-	}
-
-	public static void main(String[] args) {
-		System.out.println(UUID.class);
 	}
 
 }
