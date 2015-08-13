@@ -47,7 +47,7 @@ public class CacheQueriesScanQueryExample {
 
 		try (Ignite ignite = Ignition.start("config/default-config.xml")) {
 
-			CacheConfiguration<String, LocalDateTime> cacheCfg = new CacheConfiguration<>("CacheApiExample");
+			CacheConfiguration<String, LocalDateTime> cacheCfg = new CacheConfiguration<>("CacheQueriesScanQueryExample");
 			cacheCfg.setCacheMode(CacheMode.PARTITIONED).setExpiryPolicyFactory(CreatedExpiryPolicy.factoryOf(new Duration(TimeUnit.HOURS, 3)));
 
 			try (IgniteCache<String, LocalDateTime> igniteCache = ignite.getOrCreateCache(cacheCfg)) {
