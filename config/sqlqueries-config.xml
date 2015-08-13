@@ -81,5 +81,44 @@
 			</bean>
 		</property>
 
+		<property name="cacheConfiguration">
+			<array>
+				<bean class="org.apache.ignite.configuration.CacheConfiguration">
+					<property name="name" value="CacheQueriesSQLQueriesExample"/>
+					
+					<property name="typeMetadata">
+						<list>
+							<bean class="org.apache.ignite.cache.CacheTypeMetadata">
+								<!-- Type to query. -->
+								<property name="valueType" value="com.doctor.ignite.example.Person" />
+								<!-- Fields to be queried. -->
+								<property name="queryFields">
+									<map>
+										<entry key="id" value="java.util.UUID" />
+										<entry key="name" value="java.lang.String" />
+										<entry key="salary" value="java.math.BigDecimal" />
+										<entry key="sex" value="java.lang.String" />
+									</map>
+								</property>
+								<!-- Fields to index in ascending order. -->
+								<property name="ascendingFields">
+									<map>
+										<entry key="id" value="java.util.UUID" />
+										<entry key="salary" value="java.math.BigDecimal" />
+									</map>
+								</property>
+								<!-- Fields to index as text. -->
+								<property name="textFields">
+									<list>
+										<value>name</value>
+									</list>
+								</property>
+							</bean>
+
+						</list>
+					</property>
+				</bean>
+			</array>
+		</property>
 	</bean>
 </beans>
