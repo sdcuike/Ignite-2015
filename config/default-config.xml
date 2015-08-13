@@ -27,6 +27,9 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util.xsd">
 	<bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration">
+
+		<!-- Enable client mdoe. -->
+		<property name="clientMode" value="true" />
 		<!-- Set to true to enable distributed class loading for examples, default is false. -->
 		<property name="peerClassLoadingEnabled" value="true" />
 
