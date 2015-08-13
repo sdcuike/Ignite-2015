@@ -98,6 +98,7 @@
 										<entry key="name" value="java.lang.String" />
 										<entry key="salary" value="java.math.BigDecimal" />
 										<entry key="sex" value="java.lang.String" />
+										<entry key="resume" value="java.lang.String" />
 									</map>
 								</property>
 								<!-- Fields to index in ascending order. -->
@@ -110,7 +111,7 @@
 								<!-- Fields to index as text. -->
 								<property name="textFields">
 									<list>
-										<value>name</value>
+										<value>resume</value>
 									</list>
 								</property>
 							</bean>
