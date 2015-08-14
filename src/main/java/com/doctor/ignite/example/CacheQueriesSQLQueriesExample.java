@@ -45,6 +45,62 @@ import org.apache.ignite.configuration.CacheConfiguration;
  *      https://issues.apache.org/jira/browse/IGNITE-302 bug修复版本
  * 
  *      http://apacheignite.gridgain.org/v1.0/discuss/cat/data-grid
+ * 
+ * 
+ *      [15:20:28,659][SEVERE][tcp-disco-msg-worker-#2%null][TcpDiscoverySpi] Failed to unmarshal discovery custom message.
+ *      class org.apache.ignite.IgniteCheckedException: Failed to find class with given class loader for unmarshalling (make sure same versions of all classes are available on all nodes or enable peer-class-loading): sun.misc.Launcher$AppClassLoader@18b4aac2
+ *      at org.apache.ignite.marshaller.jdk.JdkMarshaller.unmarshal(JdkMarshaller.java:104)
+ *      at org.apache.ignite.marshaller.AbstractMarshaller.unmarshal(AbstractMarshaller.java:67)
+ *      at org.apache.ignite.spi.discovery.tcp.messages.TcpDiscoveryCustomEventMessage.message(TcpDiscoveryCustomEventMessage.java:77)
+ *      at org.apache.ignite.spi.discovery.tcp.ServerImpl$RingMessageWorker.notifyDiscoveryListener(ServerImpl.java:3935)
+ *      at org.apache.ignite.spi.discovery.tcp.ServerImpl$RingMessageWorker.processCustomMessage(ServerImpl.java:3907)
+ *      at org.apache.ignite.spi.discovery.tcp.ServerImpl$RingMessageWorker.processMessage(ServerImpl.java:1895)
+ *      at org.apache.ignite.spi.discovery.tcp.ServerImpl$MessageWorkerAdapter.body(ServerImpl.java:4840)
+ *      at org.apache.ignite.spi.IgniteSpiThread.run(IgniteSpiThread.java:62)
+ *      Caused by: java.lang.ClassNotFoundException: com.doctor.ignite.example.Person
+ *      at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+ *      at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+ *      at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+ *      at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+ *      at java.lang.Class.forName0(Native Method)
+ *      at java.lang.Class.forName(Class.java:348)
+ *      at org.apache.ignite.internal.util.IgniteUtils.forName(IgniteUtils.java:7911)
+ *      at org.apache.ignite.marshaller.jdk.JdkMarshallerObjectInputStream.resolveClass(JdkMarshallerObjectInputStream.java:52)
+ *      at java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:1613)
+ *      at java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1518)
+ *      at java.io.ObjectInputStream.readClass(ObjectInputStream.java:1484)
+ *      at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1334)
+ *      at java.io.ObjectInputStream.readArray(ObjectInputStream.java:1707)
+ *      at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1345)
+ *      at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2000)
+ *      at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1924)
+ *      at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1801)
+ *      at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1351)
+ *      at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2000)
+ *      at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1924)
+ *      at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1801)
+ *      at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1351)
+ *      at java.io.ObjectInputStream.readObject(ObjectInputStream.java:371)
+ *      at java.util.ArrayList.readObject(ArrayList.java:791)
+ *      at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source)
+ *      at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+ *      at java.lang.reflect.Method.invoke(Method.java:497)
+ *      at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1017)
+ *      at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1900)
+ *      at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1801)
+ *      at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1351)
+ *      at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2000)
+ *      at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1924)
+ *      at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1801)
+ *      at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1351)
+ *      at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:2000)
+ *      at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1924)
+ *      at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1801)
+ *      at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1351)
+ *      at java.io.ObjectInputStream.readObject(ObjectInputStream.java:371)
+ *      at org.apache.ignite.marshaller.jdk.JdkMarshaller.unmarshal(JdkMarshaller.java:98)
+ *      ... 7 more
+ * 
  *
  */
 public class CacheQueriesSQLQueriesExample {
