@@ -43,6 +43,8 @@ import org.apache.ignite.configuration.CacheConfiguration;
  * @see https://apacheignite.readme.io/docs/cache-queries
  * 
  *      https://issues.apache.org/jira/browse/IGNITE-302 bug修复版本
+ * 
+ *      http://apacheignite.gridgain.org/v1.0/discuss/cat/data-grid
  *
  */
 public class CacheQueriesSQLQueriesExample {
