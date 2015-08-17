@@ -1,6 +1,5 @@
 package com.doctor.ignite.example;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -8,8 +7,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.ignite.cache.query.annotations.QuerySqlField;
 import org.apache.ignite.cache.query.annotations.QueryTextField;
 
-public class Person implements Serializable {
-	private static final long serialVersionUID = -4449817613896407122L;
+public class Person {
 
 	@QuerySqlField(index = true)
 	private UUID id;
