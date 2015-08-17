@@ -40,7 +40,9 @@ import org.apache.ignite.configuration.CacheConfiguration;
  *
  * @time 2015年8月13日 下午2:13:05
  *
- * @see https://apacheignite.readme.io/docs/cache-queries
+ * @see https://issues.apache.org/jira/browse/IGNITE-1255(寻求帮助一下).
+ * 
+ *      https://apacheignite.readme.io/docs/cache-queries
  * 
  *      https://issues.apache.org/jira/browse/IGNITE-302 bug修复版本
  * 
