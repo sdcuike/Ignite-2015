@@ -140,7 +140,21 @@
 	<build>
 		<finalName>Ignite-2015</finalName>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
 
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -220,6 +234,6 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
-		
+
 	</pluginRepositories>
 </project>
