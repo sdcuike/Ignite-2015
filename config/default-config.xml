@@ -50,13 +50,13 @@
 			</list>
 		</property>
 
-		<property name="marshaller">
-			<bean class="org.apache.ignite.marshaller.jdk.JdkMarshaller " />
-		</property>
+		<!-- <property name="marshaller"> -->
+		<!-- <bean class="org.apache.ignite.marshaller.jdk.JdkMarshaller " /> -->
+		<!-- </property> -->
 
-<!-- 		<property name="marshaller"> -->
-<!-- 			<bean class="org.apache.ignite.marshaller.optimized.OptimizedMarshaller" p:requireSerializable="false" /> -->
-<!-- 		</property> -->
+		<property name="marshaller">
+			<bean class="org.apache.ignite.marshaller.optimized.OptimizedMarshaller" p:requireSerializable="false" />
+		</property>
 
 		<!-- Explicitly configure TCP discovery SPI to provide list of initial nodes. -->
 		<property name="discoverySpi">

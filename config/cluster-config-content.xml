@@ -48,8 +48,11 @@
 			</list>
 		</property>
 
+		<!-- <property name="marshaller"> -->
+		<!-- <bean class="org.apache.ignite.marshaller.jdk.JdkMarshaller " /> -->
+		<!-- </property> -->
 		<property name="marshaller">
-			<bean class="org.apache.ignite.marshaller.jdk.JdkMarshaller " />
+			<bean class="org.apache.ignite.marshaller.optimized.OptimizedMarshaller" p:requireSerializable="false" />
 		</property>
 
 
