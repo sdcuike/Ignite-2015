@@ -49,7 +49,9 @@
 		</property>
 
 		<property name="marshaller">
-			<bean class="org.apache.ignite.marshaller.optimized.OptimizedMarshaller" p:requireSerializable = "false" />
+			<bean class="org.apache.ignite.marshaller.optimized.OptimizedMarshaller ">
+				<property name="requireSerializable" value="false" />
+			</bean>
 		</property>
 
 
