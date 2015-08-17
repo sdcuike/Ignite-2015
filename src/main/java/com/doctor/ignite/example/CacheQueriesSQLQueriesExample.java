@@ -104,6 +104,13 @@ import org.apache.ignite.configuration.CacheConfiguration;
  *      ... 7 more
  * 
  *
+ *      解决：请打包工程jar包及依赖第三方包打包到一起（像JStorm一样打包），copy到apache-ignite lib目录下。
+ *      see http://apacheignite.gridgain.org/v1.0/docs/zero-deployment：
+ *      Such behavior is possible due to peer class loading (P2P class loading), a special distributed ClassLoader in Ignite for inter-node byte-code exchange. With peer-class-loading enabled, you don't have to manually deploy your Java or Scala code on each node in the grid and re-deploy it each
+ *      time it changes.
+ * 
+ *      It is recommended that peer-class-loading is disabled in production. Generally you want to have a controlled production environment without any magic. To deploy your classes explicitly, you can copy them into Ignite libs folder or manually add them to the classpath on every node.
+ * 
  */
 public class CacheQueriesSQLQueriesExample {
 
