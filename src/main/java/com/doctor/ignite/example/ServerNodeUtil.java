@@ -28,8 +28,9 @@ import org.apache.ignite.Ignition;
  *
  * @time 2015年8月17日 下午3:03:34
  *
- * @see
+ * @see org.apache.ignite.internal.IgnitionEx#start(org.apache.ignite.internal.processors.resource.GridSpringResourceContext)
  *
+ *      默认配置文件要注意。
  */
 public class ServerNodeUtil {
 
