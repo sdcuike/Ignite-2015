@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:p="http://www.springframework.org/schema/p" 
+       xmlns:util="http://www.springframework.org/schema/util" 
+       xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	                       http://www.springframework.org/schema/beans/spring-beans.xsd
+		                   http://www.springframework.org/schema/context
+		                   http://www.springframework.org/schema/context/spring-context.xsd
+		                   http://www.springframework.org/schema/util 
+		                   http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<description>Spring file for ignite configuration.</description>
+
+
+	<bean id="igniteSpringBean" class="org.apache.ignite.IgniteSpringBean">
+		<property name="configuration">
+			<bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration">
+				<property name="clientMode" value="true" />
+
+				<property name="cacheConfiguration">
+					<list>
+						<bean class="org.apache.ignite.configuration.CacheConfiguration">
+							<property name="atomicityMode" value="ATOMIC" />
+							<property name="backups" value="1" />
+						</bean>
+					</list>
+				</property>
+
+				<property name="marshaller">
+					<bean class="org.apache.ignite.marshaller.optimized.OptimizedMarshaller">
+						<property name="requireSerializable" value="false" />
+					</bean>
+				</property>
+
+
+				<property name="discoverySpi">
+					<bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
+						<property name="ipFinder">
+							<bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.multicast.TcpDiscoveryMulticastIpFinder">
+								<property name="addresses">
+									<list>
+										<value>127.0.0.1:47500..47509</value>
+									</list>
+								</property>
+							</bean>
+						</property>
+					</bean>
+				</property>
+			</bean>
+		</property>
+	</bean>
+</beans>
