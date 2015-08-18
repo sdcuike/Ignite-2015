@@ -16,7 +16,8 @@
 
 	<bean id="igniteSpringBean" class="org.apache.ignite.IgniteSpringBean">
 		<property name="configuration">
-			<bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration">
+			<bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration" factory-method="start">
+				<constructor-arg type="java.lang.String" value="classpath:/Ignite-2015-config/ignite-config.xml"/>
 				<property name="clientMode" value="true" />
 
 				<property name="cacheConfiguration">
