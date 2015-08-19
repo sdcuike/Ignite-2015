@@ -67,10 +67,10 @@ public class SpringIgniteExample {
 		System.out.println(igniteCache2.get(person.getId()));
 
 		System.out.println("所有：");
-		Person person1 = new Person(UUID.randomUUID(), "doctor", BigDecimal.valueOf(88888888.888), "man", "...");
+		Person person1 = new Person(UUID.randomUUID(), "doctor 118", BigDecimal.valueOf(88888888.888), "man", "...");
 		igniteCache2.put(person1.getId(), person1);
 
-		Person person2 = new Person(UUID.randomUUID(), "doctor who ", BigDecimal.valueOf(188888888.888), "man", "...");
+		Person person2 = new Person(UUID.randomUUID(), "doctor who 88 ", BigDecimal.valueOf(188888888.888), "man", "...");
 		igniteCache2.put(person2.getId(), person2);
 
 		try (QueryCursor<List<?>> queryCursor = igniteCache2.query(new SqlFieldsQuery("select name from Person"))) {
