@@ -16,18 +16,19 @@
 
 	<bean id="igniteSpringBean" class="org.apache.ignite.IgniteSpringBean">
 		<property name="configuration">
-			<bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration" factory-method="start">
-				<constructor-arg type="java.lang.String" value="classpath:/Ignite-2015-config/ignite-config.xml"/>
+			<bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration" >
 				<property name="clientMode" value="true" />
 
-				<property name="cacheConfiguration">
-					<list>
-						<bean class="org.apache.ignite.configuration.CacheConfiguration">
-							<property name="atomicityMode" value="ATOMIC" />
-							<property name="backups" value="1" />
-						</bean>
-					</list>
-				</property>
+<!-- 				<property name="cacheConfiguration"> -->
+<!-- 					<list> -->
+<!-- 						<bean name="CacheConfiguration" class="org.apache.ignite.configuration.CacheConfiguration"> -->
+<!-- 							<property name="atomicityMode" value="ATOMIC" /> -->
+<!-- 							<property name="backups" value="1" /> -->
+<!-- 							<property name="cacheMode" value="PARTITIONED"/> -->
+<!-- 							<property name="expiryPolicyFactory" ref="createdExpiryPolicyForDay"/> -->
+<!-- 						</bean> -->
+<!-- 					</list> -->
+<!-- 				</property> -->
 
 				<property name="marshaller">
 					<bean class="org.apache.ignite.marshaller.optimized.OptimizedMarshaller">
@@ -51,5 +52,20 @@
 				</property>
 			</bean>
 		</property>
+	</bean>
+	
+	<bean name="CacheConfigurationForDays" class="org.apache.ignite.configuration.CacheConfiguration">
+		<property name="atomicityMode" value="ATOMIC" />
+		<property name="backups" value="1" />
+		<property name="cacheMode" value="PARTITIONED"/>
+		<property name="expiryPolicyFactory" ref="createdExpiryPolicyForDay"/>
+	</bean>
+	
+	<bean name="createdExpiryPolicyForDay" class="javax.cache.expiry.CreatedExpiryPolicy" factory-method="factoryOf" >
+		<constructor-arg type="javax.cache.expiry.Duration" ref="durationForDay"/>
+	</bean>
+	<bean name="durationForDay" class="javax.cache.expiry.Duration" >
+		<constructor-arg name="timeUnit" value="HOURS" />
+		<constructor-arg name="durationAmount" value="24"/>
 	</bean>
 </beans>
