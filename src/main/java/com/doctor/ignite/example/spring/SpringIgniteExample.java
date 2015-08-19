@@ -18,8 +18,19 @@
  */
 package com.doctor.ignite.example.spring;
 
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.ignite.Ignite;
+import org.apache.ignite.IgniteCache;
+import org.apache.ignite.cache.query.QueryCursor;
+import org.apache.ignite.cache.query.SqlFieldsQuery;
+import org.apache.ignite.configuration.CacheConfiguration;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.doctor.ignite.example.Person;
 
 /**
  * @author doctor
@@ -31,10 +42,43 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class SpringIgniteExample {
 	// AnnotationConfigApplicationContext
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringIgniteConfig.class);
 		Ignite ignite = applicationContext.getBean(Ignite.class);
-		System.out.println(ignite);
-	}
 
+		CacheConfiguration<UUID, Person> cacheConfiguration = applicationContext.getBean("CacheConfigurationForDays", CacheConfiguration.class);
+
+		IgniteCache<UUID, Person> igniteCache2 = ignite.cache("cacheForDays");
+
+		if (igniteCache2 == null) {
+			CacheConfiguration<UUID, Person> cacheConfiguration2 = new CacheConfiguration<>(cacheConfiguration);
+			cacheConfiguration2.setName("cacheForDays");
+			igniteCache2 = ignite.createCache(cacheConfiguration2);
+
+			System.out.println("--------createCache:" + "cacheForDays");
+		}
+
+		Person person = new Person(UUID.randomUUID(), "doctor", BigDecimal.valueOf(88888888.888), "man", "...");
+		System.out.println(igniteCache2.get(person.getId()));
+		igniteCache2.put(person.getId(), person);
+		System.out.println(igniteCache2.get(person.getId()));
+
+		TimeUnit.SECONDS.sleep(6);
+		System.out.println(igniteCache2.get(person.getId()));
+
+		System.out.println("所有：");
+		Person person1 = new Person(UUID.randomUUID(), "doctor", BigDecimal.valueOf(88888888.888), "man", "...");
+		igniteCache2.put(person1.getId(), person1);
+
+		Person person2 = new Person(UUID.randomUUID(), "doctor who ", BigDecimal.valueOf(188888888.888), "man", "...");
+		igniteCache2.put(person2.getId(), person2);
+
+		try (QueryCursor<List<?>> queryCursor = igniteCache2.query(new SqlFieldsQuery("select name from Person"))) {
+			for (List<?> entry : queryCursor) {
+				System.out.println(entry);
+			}
+		}
+
+		applicationContext.close();
+	}
 }

@@ -19,16 +19,16 @@
 			<bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration" >
 				<property name="clientMode" value="true" />
 
-<!-- 				<property name="cacheConfiguration"> -->
-<!-- 					<list> -->
-<!-- 						<bean name="CacheConfiguration" class="org.apache.ignite.configuration.CacheConfiguration"> -->
-<!-- 							<property name="atomicityMode" value="ATOMIC" /> -->
-<!-- 							<property name="backups" value="1" /> -->
-<!-- 							<property name="cacheMode" value="PARTITIONED"/> -->
-<!-- 							<property name="expiryPolicyFactory" ref="createdExpiryPolicyForDay"/> -->
-<!-- 						</bean> -->
-<!-- 					</list> -->
-<!-- 				</property> -->
+				<property name="cacheConfiguration">
+					<list>
+						<bean name="CacheConfiguration" class="org.apache.ignite.configuration.CacheConfiguration">
+							<property name="atomicityMode" value="ATOMIC" />
+							<property name="backups" value="1" />
+							<property name="cacheMode" value="PARTITIONED"/>
+							<property name="expiryPolicyFactory" ref="createdExpiryPolicyForDay"/>
+						</bean>
+					</list>
+				</property>
 
 				<property name="marshaller">
 					<bean class="org.apache.ignite.marshaller.optimized.OptimizedMarshaller">
@@ -59,13 +59,19 @@
 		<property name="backups" value="1" />
 		<property name="cacheMode" value="PARTITIONED"/>
 		<property name="expiryPolicyFactory" ref="createdExpiryPolicyForDay"/>
+		<property name="indexedTypes" value="java.util.UUID,com.doctor.ignite.example.Person"/>
+	</bean>
+	 
+	<bean name="createdExpiryPolicyForDay" class="javax.cache.expiry.CreatedExpiryPolicy" factory-method="factoryOf" >
+<!-- 		<constructor-arg type="javax.cache.expiry.Duration" ref="durationForDay"/> -->
+		<constructor-arg type="javax.cache.expiry.Duration" >
+			<util:constant static-field="javax.cache.expiry.Duration.ONE_DAY"/>
+		</constructor-arg>
 	</bean>
 	
-	<bean name="createdExpiryPolicyForDay" class="javax.cache.expiry.CreatedExpiryPolicy" factory-method="factoryOf" >
-		<constructor-arg type="javax.cache.expiry.Duration" ref="durationForDay"/>
-	</bean>
-	<bean name="durationForDay" class="javax.cache.expiry.Duration" >
-		<constructor-arg name="timeUnit" value="HOURS" />
-		<constructor-arg name="durationAmount" value="24"/>
-	</bean>
+<!-- 	<bean name="durationForDay" class="javax.cache.expiry.Duration" > -->
+<!-- 		<constructor-arg name="timeUnit" value="SECONDS" /> -->
+<!-- 		<constructor-arg name="durationAmount" value="20"/> -->
+<!-- 	</bean> -->
+	
 </beans>
