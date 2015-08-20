@@ -68,7 +68,7 @@ public class CrossCacheQueries {
 		// }
 		// }
 
-		SqlQuery sqlQuery = new SqlQuery<>(Person.class, "from \"person2\"..Person , Person  ");
+		SqlQuery sqlQuery = new SqlQuery<>(Person.class, "from Person , \"person2\".Person  ");
 		try (QueryCursor queryCursor = igniteCache1.query(sqlQuery)) {
 			for (Object object : queryCursor) {
 				System.out.println(object);
