@@ -1,6 +1,7 @@
 package com.doctor.ignite.example;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -12,10 +13,10 @@ public class Person {
 	@QuerySqlField(index = true)
 	private UUID id;
 
-	@QuerySqlField
+	@QuerySqlField(index = true)
 	private String name;
 
-	@QuerySqlField
+	@QuerySqlField(index = true)
 	private BigDecimal salary;
 
 	@QuerySqlField
@@ -23,6 +24,9 @@ public class Person {
 
 	@QueryTextField
 	private String resume;
+
+	@QueryTextField
+	private LocalDateTime birth;
 
 	public Person(UUID id, String name, BigDecimal salary, String sex, String resume) {
 		this.id = id;
@@ -70,6 +74,14 @@ public class Person {
 
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+
+	public LocalDateTime getBirth() {
+		return birth;
+	}
+
+	public void setBirth(LocalDateTime birth) {
+		this.birth = birth;
 	}
 
 	@Override
