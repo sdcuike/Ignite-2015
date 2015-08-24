@@ -35,7 +35,7 @@ import com.doctor.ignite.example.Person;
  *
  * @time 2015年8月24日 上午10:58:49
  *
- * @see
+ * @see org.apache.ignite.internal.processors.query.h2.IgniteH2Indexing
  *
  */
 public class SqlUnion {
