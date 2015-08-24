@@ -84,7 +84,8 @@ public class CrossCacheQueries {
 		if (igniteCache == null) {
 			CacheConfiguration<UUID, Person> cacheConfiguration2 = new CacheConfiguration(cacheConfiguration);
 			cacheConfiguration2.setName(cacheName);
-			igniteCache = ignite.createCache(cacheConfiguration2);
+			// igniteCache = ignite.createCache(cacheConfiguration2);
+			return ignite.getOrCreateCache(cacheConfiguration2);
 		}
 
 		return igniteCache;
